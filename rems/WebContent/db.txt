@@ -1,0 +1,215 @@
+-- RUN COMMAND TO RESTORE THIS FILE
+-- mysql.exe -u root -p root rems_db < db.dump
+
+-- MySQL dump 10.16  Distrib 10.1.29-MariaDB, for Win32 (AMD64)
+--
+-- Host: localhost    Database: rems_db
+-- ------------------------------------------------------
+-- Server version	10.1.29-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `appartmentmaster`
+--
+
+DROP TABLE IF EXISTS `appartmentmaster`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `appartmentmaster` (
+  `AppNo` int(11) DEFAULT NULL,
+  `PlotNo` int(11) DEFAULT NULL,
+  `AppName` varchar(50) DEFAULT NULL,
+  `Address` varchar(50) DEFAULT NULL,
+  `NoFlats` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appartmentmaster`
+--
+
+LOCK TABLES `appartmentmaster` WRITE;
+/*!40000 ALTER TABLE `appartmentmaster` DISABLE KEYS */;
+INSERT INTO `appartmentmaster` VALUES (1,243,'SUNIL Apartment','243 Arihant Nagar Pal Road Jodhpur Rajasthan',10),(2,244,'MD Apartment','Jodhpur',6);
+/*!40000 ALTER TABLE `appartmentmaster` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empmaster`
+--
+
+DROP TABLE IF EXISTS `empmaster`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `empmaster` (
+  `EMPName` varchar(255) DEFAULT NULL,
+  `EMPNO` double DEFAULT NULL,
+  `MailID` varchar(255) DEFAULT NULL,
+  `CurrentLocation` varchar(255) DEFAULT NULL,
+  `JoiningDate` datetime DEFAULT NULL,
+  `Role` varchar(255) DEFAULT NULL,
+  `PrimarySkillset` varchar(255) DEFAULT NULL,
+  `Remarks` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empmaster`
+--
+
+LOCK TABLES `empmaster` WRITE;
+/*!40000 ALTER TABLE `empmaster` DISABLE KEYS */;
+INSERT INTO `empmaster` VALUES ('SUNIL SUTHAR',1,'sunil-suthar@outlook.com','Jodhpur','2018-06-11 00:00:00','Project Manager','MCA','Good Java\r\nGreat Person :)  ');
+/*!40000 ALTER TABLE `empmaster` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment_history`
+--
+
+DROP TABLE IF EXISTS `payment_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_history` (
+  `PlotNo` int(11) DEFAULT NULL,
+  `Amount` decimal(18,0) DEFAULT NULL,
+  `PaymentDate` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment_history`
+--
+
+LOCK TABLES `payment_history` WRITE;
+/*!40000 ALTER TABLE `payment_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `plotdetails`
+--
+
+DROP TABLE IF EXISTS `plotdetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `plotdetails` (
+  `PlotNo` int(11) DEFAULT NULL,
+  `RoadNo` int(11) DEFAULT NULL,
+  `SurveyNo` int(11) DEFAULT NULL,
+  `Extent` int(11) DEFAULT NULL,
+  `SqYardCost` decimal(18,0) DEFAULT NULL,
+  `OtherExpences` decimal(18,0) DEFAULT NULL,
+  `Boundaries` varchar(50) DEFAULT NULL,
+  `Status` varchar(50) DEFAULT NULL,
+  `Facing` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `plotdetails`
+--
+
+LOCK TABLES `plotdetails` WRITE;
+/*!40000 ALTER TABLE `plotdetails` DISABLE KEYS */;
+INSERT INTO `plotdetails` VALUES (243,1,1,25000,25000,75000,'160','Vacant','North'),(244,2,2,200,5000,1000,'8000','Vacant','North');
+/*!40000 ALTER TABLE `plotdetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `salesmaster`
+--
+
+DROP TABLE IF EXISTS `salesmaster`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `salesmaster` (
+  `PlotNo` int(11) DEFAULT NULL,
+  `SaleValue` decimal(18,0) DEFAULT NULL,
+  `DateofSale` datetime DEFAULT NULL,
+  `SoldTo` varchar(50) DEFAULT NULL,
+  `Advance` decimal(18,0) DEFAULT NULL,
+  `Balance` decimal(18,0) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `salesmaster`
+--
+
+LOCK TABLES `salesmaster` WRITE;
+/*!40000 ALTER TABLE `salesmaster` DISABLE KEYS */;
+INSERT INTO `salesmaster` VALUES (243,2000000,'2018-07-11 00:00:00','SURESH SUTHAR',1000000,1000000);
+/*!40000 ALTER TABLE `salesmaster` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subscribers`
+--
+
+DROP TABLE IF EXISTS `subscribers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subscribers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subscribers`
+--
+
+LOCK TABLES `subscribers` WRITE;
+/*!40000 ALTER TABLE `subscribers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subscribers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-06-11 16:03:10
