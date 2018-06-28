@@ -39,6 +39,7 @@
 				Estate Management System</a>
 		</div>
 
+
 		<ul class="nav navbar-nav navbar-right" id="admin_link">
 			<li><a href="<%=request.getContextPath()%>/admin/"><span
 					class="glyphicon glyphicon-user"></span> Login</a></li>
