@@ -4,7 +4,7 @@
 document.getElementById("admin_link").innerHTML="";
 </script>
 <div class="jumbotron bg text-center">
-	<h1>Admin Panel Login</h1>
+	<h1>Login Panel</h1>
 	<p>REAL ESTATE MANAGEMENT SYSTEM</p>
 	<div align="center">
 		<div class="jumbotron  text-center"

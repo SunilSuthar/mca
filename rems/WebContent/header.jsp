@@ -41,7 +41,7 @@
 
 		<ul class="nav navbar-nav navbar-right" id="admin_link">
 			<li><a href="<%=request.getContextPath()%>/admin/"><span
-					class="glyphicon glyphicon-user"></span> Admin Panel</a></li>
+					class="glyphicon glyphicon-user"></span> Login</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
